@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 이미지 전환</title>
+    <style>
+        #galleryZone{ text-align: center;}
+        #galleryZone input[type="image"]{
+            margin: 0px 8px;
+        }
+        img{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="galleryZone">
+        <p><img src="images/ki1.jpg" id="photo" alt="키티"></p>
+        <p>
+            <button onclick="gallery(0)">이전</button>
+            <button onclick="gallery(1)">다음</button>
+        </p>
+    </div>
+
+    <script>
+        var num = 1;
+        function gallery(direct){
+            if(direct){
+                if(num == 14 ) return;
+                num++;
+            } else{
+                if(num == 1 ) return;
+                num--;
+            }
+            var imgTag = document.getElementById("photo");
+            imgTag.setAttribute("src" , `images/ki${num}.jpg`)
+        }
+    </script>
+</body>
+</html>
